@@ -1,0 +1,27 @@
+.nav{
+    background-color: #F7F8F9;
+    height: 70px;
+    align-items: center;
+    // justify-content: center;
+    display: flex;
+    width: 100%;
+}
+
+.inputs{
+        border-radius: 20px;
+        background-color: #F2EFEF;
+        width: 250px;
+        height: 20px;
+        border-color: 1px white;
+        position: fixed;
+        margin-left: 500px;
+        margin-bottom: 20px;
+}
+
+.user{
+    margin-left: 1200px;
+}
+.search{
+    margin-left: 460px;
+    position: fixed;
+}
