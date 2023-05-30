@@ -1,0 +1,39 @@
+*{
+  margin: 0;
+}
+
+.main{
+    background-color: rgb(217, 238, 238);
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding:20px;
+    margin-top: 70px;
+    min-height: 100vh;
+    width: calc(100vw - 50px);
+    justify-content: space-between;
+    gap: 20px;
+    // overflow-y: scroll;
+}
+
+  // #calen,
+  // #upcome {
+  //   // display: none;
+  // }
+  
+  .show {
+    display: block;
+  }
+  #calen {
+    &.hide {
+    transition: transform 0.8s ease;
+    transform: translateX(-100%);
+    }
+  }
+  
+  #upcome.hide {
+    transition: transform 0.1s ease;
+    transform: translateX(100%);
+  }
+  

@@ -1,16 +1,17 @@
 .cbody{
-    background-color: #F7F8F9;
-    height: 600px;
-    margin-top: 120px;
-    width: 340px;
-    margin-left: 20px;
-    position: fixed;
+    background-color: #010913;
+    height: 400px;
+    width: 380px;
 }
-
 
 .calendar{
     margin-top: 60px;
-    
     margin-left: 10px;
     width: 300px;
+    position:absolute;
+}
+
+.drawer{
+    width: 400px;
+    height: 600px;
 }

@@ -6,7 +6,7 @@ function Event() {
         <div className='ebody'>
             <div className='content'>
                 <p>Health</p>
-                <div className='icon'>
+                <div className='iconh'>
                     
                 </div>
             </div>

@@ -4,9 +4,41 @@ import './Upcoming.scss';
 function Upcoming() {
     return (
         <div className='ubody'>
-            <div className='contents'>
-                <p className='uhead'>Upcoming Events</p>               
-            </div>
+           
+                <p className='uhead'>Upcoming Events</p>
+                <div className="textbox">
+                    <textarea  placeholder="">Sports day</textarea>
+                </div>
+                <div className="textbox">
+                    <textarea  placeholder="">Team lunch</textarea>
+                </div>
+                <div className="textbox">
+                    <textarea  placeholder="">Meeting</textarea>
+                </div>
+                <div className="textbox">
+                    <textarea  placeholder="">Meeting</textarea>
+                </div>
+                <div className="textbox">
+                    <textarea  placeholder="">Meeting</textarea>
+                </div>
+
+                <div className="textbox">
+                    <textarea  placeholder="">Meeting</textarea>
+                </div>
+                <div className="textbox">
+                    <textarea  placeholder="">Meeting</textarea>
+                </div><div className="textbox">
+                    <textarea  placeholder="">Meeting</textarea>
+                </div><div className="textbox">
+                    <textarea  placeholder="">Meeting</textarea>
+                </div><div className="textbox">
+                    <textarea  placeholder="">Meeting</textarea>
+                </div><div className="textbox">
+                    <textarea  placeholder="">Meeting</textarea>
+                </div><div className="textbox">
+                    <textarea  placeholder="">Meeting</textarea>
+                </div>
+            
         </div>
     )
 }

@@ -62,11 +62,11 @@ const Signin = () => {
                     <ErrorMessage name='password' component="div"></ErrorMessage>
                   </div>
                   <button type="submit" className='btn'>Sign In</button>
-                  <p>Not regitered yet?</p>
+                  <p className='para'>Not regitered yet?</p>
                   <div className='signin'>
                   <Link to="/signup" className='signin'>Signup Now</Link>
-                  <Link to="/home">go to home</Link>
                   </div>
+                  <Link to="/home">go to home</Link>
                 </div>
               </div>
             </div>
