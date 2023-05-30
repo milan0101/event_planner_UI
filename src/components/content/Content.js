@@ -11,9 +11,8 @@ function Content() {
         console.log(e)
         const calendar = document.getElementById('calen');
         const upcoming = document.getElementById('upcome');
-
         const scrollPosition = window.scrollY || window.pageYOffset;
-  
+        
         if (scrollPosition > 0) {
           calendar.classList.add('hide');
           upcoming.classList.add('hide');
