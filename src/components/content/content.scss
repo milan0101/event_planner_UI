@@ -3,7 +3,8 @@
 }
 
 .main{
-    background-color: rgb(217, 238, 238);
+    // background-color: rgb(217, 238, 238);
+    background-color: #ffffff;
     display: flex;
     top: 0;
     left: 0;
@@ -14,7 +15,6 @@
     width: calc(100vw - 50px);
     justify-content: space-between;
     gap: 20px;
-    // overflow-y: scroll;
 }
 
   // #calen,
@@ -27,13 +27,13 @@
   }
   #calen {
     &.hide {
-    transition: transform 0.8s ease;
+    transition: transform 1.5s ease;
     transform: translateX(-100%);
     }
   }
   
   #upcome.hide {
-    transition: transform 0.1s ease;
+    transition: transform 1.5s ease;
     transform: translateX(100%);
   }
   

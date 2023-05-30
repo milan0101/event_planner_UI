@@ -13,7 +13,7 @@ function Calender() {
   }
   return (
     <div className='cbody'>
-      
+      <Calendar></Calendar>
 
     </div>
   )
