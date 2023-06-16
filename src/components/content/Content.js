@@ -2,11 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 import './content.scss';
 import Upcoming from '../Upcoming/Upcoming';
-import Calender from '../calender/Calender';
 import Feeds from '../Feed/Feed';
-import { useEffect } from 'react';
-import Bcalender from '../calender/Bcalender';
 import Toggle from '../common/Toggle';
+import EventCalendar from '../calender/Bcalender';
 
 function Content() {
   const [showCalendar, setShowCalendar] = useState(true);
@@ -20,7 +18,8 @@ function Content() {
       <Toggle handleToggleCalendar={handleToggleCalendar} ></Toggle>
       {showCalendar && (
         <div id='calen'>
-          <Bcalender></Bcalender>
+          {/* <Bcalender></Bcalender> */}
+          <EventCalendar></EventCalendar>
         </div>)}
       <Feeds />
       <div id='upcome'>

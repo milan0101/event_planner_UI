@@ -1,10 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar';
-import Calender from './calender/Calender';
-
-import Event from './events/Event';
 import './home.scss';
-import Upcoming from './Upcoming/Upcoming';
 import Content from './content/Content';
 function Home() {
 

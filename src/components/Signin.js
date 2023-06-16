@@ -85,6 +85,7 @@ const Signin = () => {
                         <Link to="/signup" className='signin'>Signup Now</Link>
                       </div>
                       <Link to="/home">go to home</Link>
+                      <Link to="/calendar">go to calendar</Link>
                     </div>
                   </div>
                 </div>
