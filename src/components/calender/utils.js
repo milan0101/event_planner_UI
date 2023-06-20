@@ -20,6 +20,7 @@ export const sortDays = (date) => {
   const sortedDays = [...DAYS.slice(dayIndex), ...DAYS.slice(0, dayIndex)];
   return sortedDays;
 };
+ 
 
 export const datesAreOnSameDay = (first, second) =>
   first.getFullYear() === second.getFullYear() &&
@@ -43,11 +44,11 @@ export const nextMonth = (date, cb) => {
 };
 
 export const prevMonth = (date, cb) => {
-  const mon = date.getMonth();
-  if (mon > 0) {
-    date.setMonth(mon - 1);
+  const month = date.getMonth();
+  if (month > 0) {
+    date.setMonth(month - 1);
   } else {
-    date.setMonth(11);
+    date.setMonth(11);  
     date.setFullYear(date.getFullYear() - 1);
   }
   cb(new Date(date));

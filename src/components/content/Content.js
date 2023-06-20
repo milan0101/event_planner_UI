@@ -1,26 +1,27 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import './content.scss';
 import Upcoming from '../Upcoming/Upcoming';
 import Feeds from '../Feed/Feed';
 import Toggle from '../common/Toggle';
 import EventCalendar from '../calender/Bcalender';
+import EZDrawer from 'react-modern-drawer';
+import 'react-modern-drawer/dist/index.css';
+import CalendarDrawer from './calendarDrawer';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 function Content() {
-  const [showCalendar, setShowCalendar] = useState(true);
+  const calendarRef = useRef();
 
-  const handleToggleCalendar = () => {
-    debugger
-    setShowCalendar(!showCalendar);
-  };
+  const toggleDrawer = () => {
+    calendarRef.current.showDrawer();
+  }
+
   return (
     <div className='main'>
-      <Toggle handleToggleCalendar={handleToggleCalendar} ></Toggle>
-      {showCalendar && (
-        <div id='calen'>
-          {/* <Bcalender></Bcalender> */}
-          <EventCalendar></EventCalendar>
-        </div>)}
+      {/* <CalendarMonthIcon onClick={() => toggleDrawer()} className='cicon'></CalendarMonthIcon> */}
+      <img src="https://www.lymmhigh.org.uk/wp-content/uploads/2020/11/calendar-icon-blue_sm.png" onClick={() => toggleDrawer()} className='cal'></img>
+      <CalendarDrawer ref={calendarRef} />
       <Feeds />
       <div id='upcome'>
         <Upcoming />
