@@ -1,53 +1,41 @@
 import React from 'react';
+import { useState, useRef } from 'react';
 import './content.scss';
 import Upcoming from '../Upcoming/Upcoming';
-import Calender from '../calender/Calender';
 import Feeds from '../Feed/Feed';
-import { useEffect } from 'react';
-import Bcalender from '../calender/Bcalender';
+import Toggle from '../common/Toggle';
+import EventCalendar from '../calender/Bcalender';
+import EZDrawer from 'react-modern-drawer';
+import 'react-modern-drawer/dist/index.css';
+import CalendarDrawer from './calendarDrawer';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import EventsDrawer from './eventsDrawer';
 
 function Content() {
-    useEffect(() => {
-      const handleScroll = (e) => {
-        console.log(e)
-        const calendar = document.getElementById('calen');
-        const upcoming = document.getElementById('upcome');
-        const scrollPosition = window.scrollY || window.pageYOffset;
+  const calendarRef = useRef();
+  const eventsRef = useRef();
 
-        if (scrollPosition > 0) {
-          calendar.classList.add('hide');
-          upcoming.classList.add('hide');
-        } 
-        else if(scrollPosition > 10){
-          calendar.classList.add('hide')
-        }
-        else {
-          calendar.classList.remove('hide');
-          upcoming.classList.remove('hide');
-        }
-        console.log('scrool', calendar, upcoming);
-      };
-      console.log('hello');
-      window.addEventListener('scroll', handleScroll);
-  
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    }, []);
-  
-    return (
-      <div className='main'>
-        <div id='calen'>
-          {/* <Calender /> */}
-          <Bcalender></Bcalender>
-        </div>
-        <Feeds />
-        <div id='upcome'>
-          <Upcoming />
-        </div>
-      </div>
-    );
+  const toggleDrawer = () => {
+    calendarRef.current.showDrawer();
   }
-  
-  export default Content;
-  
+
+  const toggleEvent = () =>{
+    eventsRef.current.showDrawer();
+  }
+
+  return (
+    <div className='main'>
+      {/* <CalendarMonthIcon onClick={() => toggleDrawer()} className='cicon'></CalendarMonthIcon> */}
+      <img src="https://www.lymmhigh.org.uk/wp-content/uploads/2020/11/calendar-icon-blue_sm.png" onClick={() => toggleDrawer()} className='cal'></img>
+      <CalendarDrawer ref={calendarRef} />
+      <Feeds />
+      <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5NcBxHPnvquIk4Bj2Z8j-5Q-H3xdvuR5d0KusbFnsUmaps2yk9nP28iuZrxCEX5elT-M&usqp=CAU' onClick={() => toggleEvent()} className='eve'></img>
+      <EventsDrawer ref={eventsRef}></EventsDrawer>
+      {/* <div id='upcome'>
+        <Upcoming />
+      </div> */}
+    </div>
+  );
+}
+
+export default Content;

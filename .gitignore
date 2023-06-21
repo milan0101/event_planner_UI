@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 /build
+/event-planner-backend
 .pnp.js
 
 # testing

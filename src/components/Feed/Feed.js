@@ -1,34 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Feed.scss';
+import axios from 'axios';
+import { apiurl } from '../config/apiUrl';
 
 function Feeds() {
+
+  const [feeds, setFeeds] = useState([]);
+
+  useEffect(() => {
+  
+    axios.get(apiurl.getContent).then(response => {
+      setFeeds(response.data);
+      console.log(feeds)
+    }).catch(error => console.log(error));
+  }, []);
   return (
     <div className='fb'>
-       <div className='fcontent'>
-        
-       </div>
-       <div className='fcontent'>
-        
-       </div>
-       <div className='fcontent'>
-        
-       </div>
-       <div className='fcontent'>
-        
-       </div>
-       <div className='fcontent'>
-        
-       </div>
-       <div className='fcontent'>
-        
-       </div>
-       <div className='fcontent'>
-        
-       </div>
-       
-       
+      {
+        feeds && feeds.map((feeds) => (
+          <div >
+            <div className='fcontent'>
+              <h2>{feeds.post_title}</h2>
+              <h3>{feeds.post_summary}</h3>
+              <img src={feeds.post_img} className='post'></img>
+            </div>
+
+          </div>
+        ))
+      }
+
     </div>
-   
+
   )
 }
 
