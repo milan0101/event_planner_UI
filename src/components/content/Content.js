@@ -9,12 +9,18 @@ import EZDrawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
 import CalendarDrawer from './calendarDrawer';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import EventsDrawer from './eventsDrawer';
 
 function Content() {
   const calendarRef = useRef();
+  const eventsRef = useRef();
 
   const toggleDrawer = () => {
     calendarRef.current.showDrawer();
+  }
+
+  const toggleEvent = () =>{
+    eventsRef.current.showDrawer();
   }
 
   return (
@@ -23,9 +29,11 @@ function Content() {
       <img src="https://www.lymmhigh.org.uk/wp-content/uploads/2020/11/calendar-icon-blue_sm.png" onClick={() => toggleDrawer()} className='cal'></img>
       <CalendarDrawer ref={calendarRef} />
       <Feeds />
-      <div id='upcome'>
+      <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5NcBxHPnvquIk4Bj2Z8j-5Q-H3xdvuR5d0KusbFnsUmaps2yk9nP28iuZrxCEX5elT-M&usqp=CAU' onClick={() => toggleEvent()} className='eve'></img>
+      <EventsDrawer ref={eventsRef}></EventsDrawer>
+      {/* <div id='upcome'>
         <Upcoming />
-      </div>
+      </div> */}
     </div>
   );
 }

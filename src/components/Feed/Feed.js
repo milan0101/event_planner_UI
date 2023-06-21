@@ -8,7 +8,7 @@ function Feeds() {
   const [feeds, setFeeds] = useState([]);
 
   useEffect(() => {
-    // debugger
+  
     axios.get(apiurl.getContent).then(response => {
       setFeeds(response.data);
       console.log(feeds)
@@ -22,6 +22,7 @@ function Feeds() {
             <div className='fcontent'>
               <h2>{feeds.post_title}</h2>
               <h3>{feeds.post_summary}</h3>
+              <img src={feeds.post_img} className='post'></img>
             </div>
 
           </div>
