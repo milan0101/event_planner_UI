@@ -1,32 +1,102 @@
-.nav{
-    background-color:#2e5ae8;
+.nav {
+    background-color: #2e5ae8;
     height: 70px;
-    // justify-content: center;
+    justify-content: center;
     align-items: center;
     display: flex;
     width: 100vw;
     position: fixed;
     top: 0;
     z-index: 1;
-   
-    
+
 }
 
-.inputs{
+.inputs {
+    border-radius: 20px;
+    background-color: #F2EFEF;
+    width: 300px;
+    height: 20px;
+    border-color: 1px white;
+    // position: fixed;
+    margin-left: 20px;
+    // margin-bottom: 20px;
+}
+
+.user {
+    margin-left: 400px;
+}
+
+.search {
+    margin-left: 460px;
+    // position: fixed;
+}
+
+@media only screen and (max-width: 720px) {
+
+    .nav {
+        background-color: #2aa069;
+        height: 70px;
+        // justify-content: center;
+        align-items: center;
+        display: flex;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        z-index: 1;
+
+    }
+
+    .inputs {
         border-radius: 20px;
         background-color: #F2EFEF;
-        width: 300px;
+        width: 250px;
         height: 20px;
         border-color: 1px white;
         // position: fixed;
-        margin-left: 20px;
+        margin-left: 50px;
         // margin-bottom: 20px;
+    }
+    .user {
+        margin-left: 70px;
+    }
+    .search {
+        margin-left: 120px;
+        // position: fixed;
+    }
+
 }
 
-.user{
-    margin-left: 400px;
-}
-.search{
-    margin-left: 460px;
-    // position: fixed;
+@media only screen and (max-width: 480px) {
+
+    .nav {
+        background-color: #7021a5;
+        height: 70px;
+        // justify-content: center;
+        // align-items: center;
+        display: flex;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 1;
+
+    }
+
+    .inputs {
+        border-radius: 20px;
+        background-color: #F2EFEF;
+        width: 150px;
+        height: 20px;
+        border-color: 1px white;
+        // position: fixed;
+        margin-left: 10px;
+        // margin-bottom: 20px;
+    }
+    .user {
+        margin-left: 80px;
+    }
+    .search {
+        margin-left: 70px;
+        // position: fixed;
+    }
+
 }
