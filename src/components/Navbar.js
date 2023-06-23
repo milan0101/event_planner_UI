@@ -8,9 +8,12 @@ function Navbar() {
     return (
         <div className='nav'>
             <div className='left'>
-            <SearchIcon className='search'></SearchIcon>
-            <input className='inputs'></input></div>
-            <PersonIcon className='user'></PersonIcon>
+                <SearchIcon className='search'></SearchIcon>
+                <input className='inputs'></input>
+            </div>
+            <div className='right'>
+                <PersonIcon className='user'></PersonIcon>
+            </div>
         </div>
     )
 }
