@@ -7,9 +7,9 @@ import EventCalendar from './calender/Bcalender';
 function Navbar() {
     return (
         <div className='nav'>
-            
+            <div className='left'>
             <SearchIcon className='search'></SearchIcon>
-            <input className='inputs'></input>
+            <input className='inputs'></input></div>
             <PersonIcon className='user'></PersonIcon>
         </div>
     )
