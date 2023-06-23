@@ -3,9 +3,11 @@ import Drawer from "../common"
 
 import EventCalendar from '../calender/Bcalender';
 
+
 const CalendarDrawer = forwardRef((props, ref) => {
     const [open, setOpen] = useState(false);
     const [resolve, setResolve] = useState();
+    const [value, onChange] = useState(new Date());
   
     const showDrawer = () => {
       setOpen(true);

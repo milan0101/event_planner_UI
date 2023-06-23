@@ -1,27 +1,81 @@
-.fbody{
+.fbody {
     background-color: aqua;
     height: 200px;
     width: 300px;
-    
+
 }
 
-.fcontent{
+.fcontent {
     background-color: rgb(179, 180, 224);
-    height:400px;
-    width: 300px;
+    height: 584px;
+    width: 467px;
     margin-bottom: 20px;
     gap: 10px;
 }
 
-.fb{
+.fb {
     flex-grow: 1;
     align-items: center;
     justify-content: center;
-    margin-left: 400px;
-   
-}
-.post{
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    margin-left: 25px;
-    margin-top: 30px;
+
+}
+
+.post {
+    align-items: center;
+    margin-left: 75px;
+    margin-top: 50px;
+}
+
+@media only screen and (max-width: 720px) {
+
+
+    .fb {
+        flex-grow: 1;
+        align-items: center;
+        justify-content: center;
+        margin-left: 75px;
+
+    }
+    .fcontent {
+        background-color: rgb(179, 180, 224);
+        height: 510px;
+        width: 490px;
+        margin-bottom: 20px;
+        gap: 10px;
+    }
+    .post {
+        align-items: center;
+        margin-left: 65px;
+        margin-top: 30px;
+        height: 360px;
+        width: 360px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .fcontent {
+        background-color: rgb(179, 180, 224);
+        height: 380px;
+        width: 340px;
+        margin-bottom: 20px;
+        gap: 10px;
+        margin-left: 0px;
+    }
+    .fb {
+        flex-grow: 1;
+        align-items: center;
+        justify-content: center;
+        margin-left: 40px;
+
+    }
+    .post {
+        align-items: center;
+        margin-left: 35px;
+        margin-top: 30px;
+        height: 200px;
+        width:250px;
+    }
 }

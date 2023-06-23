@@ -69,3 +69,23 @@ button {
   cursor: pointer;
   
 }
+
+@media only screen and (max-width: 720px) {
+ .cal{
+  display: none;
+ }
+  .eve{
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .cal{
+   display: none;
+  }
+   .eve{
+     display: none;
+   }
+ }
+ 
+
