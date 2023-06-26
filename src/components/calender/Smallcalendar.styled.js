@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  border: 2px solid; 
+//   border: 2px solid; 
   height: 90vh;
   display:flex,
   width: 80%;
-  margin:10px;
+  margin:10px
 `;
 
 export const CalenderHead = styled.div`
@@ -17,9 +17,9 @@ justify-content :center
 `;
 
 export const StyledEvent = styled.span`
-  background: ${({ bgColor }) => bgColor};
+//   background: ${({ bgColor }) => bgColor};
   color: white;
-  text-align: left !important;
+  text-align: right ;
   padding: 2px 10px;
   margin: 0 2px;
   border-radius: 10px;
@@ -31,7 +31,7 @@ export const StyledEvent = styled.span`
 export const SevenColGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  ${(props) => props.fullheight && `height: calc(100% - 185px);`}
+  ${(props) => props.fullheight && `height: 230px;`}
   ${(props) =>
     props.fullheight &&
     `grid-template-rows: repeat(${props.is28Days ? 4 : 5}, 1fr);`}
@@ -47,10 +47,10 @@ export const SevenColGrid = styled.div`
 
     span {
       text-align: right;
-      padding-right:35px;
-      padding-top:10px;
+      padding-right: 40px;
+      padding-top: 10px;
+      font-size:20px;
       height: fit-content;
-      font-weight:400;
     }
 
     span.active {
@@ -58,10 +58,11 @@ export const SevenColGrid = styled.div`
       border-bottom: 2px solid red;
       position: relative;
     }
-    span.active::before {
-      content: "Today ";
-      font-size: 14px;
-    }
+    //  span.active::before {
+    //   content: "Today ";
+    //      font-size: 14px;
+    //      background:blue;
+    //  }
   }
 `;
 
@@ -77,7 +78,7 @@ export const HeadDays = styled.span`
 export const DateControls = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-around;
+//   justify-content: space-around;
   padding: 10px 0;
   align-items: center;
 
