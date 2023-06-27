@@ -1,5 +1,6 @@
 import React from "react";
-import { useRef, useState } from "react";
+import { useRef, useState , useEffect } from "react";
+// import  
 import {
   SevenColGrid,
   Wrapper,
@@ -22,33 +23,54 @@ import {
   range,
   sortDays
 } from "./utils";
-import CloseIcon from '@mui/icons-material/Close';
-import { left, right } from "@popperjs/core";
+import { apiurl } from "../config/apiUrl";
+import axios from "axios";
 
 
 const EventCalendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date(2023, 5, 15));
-  const [events, setEvents] = useState(MOCKAPPS);
-  const dragDateRef = useRef();
-  const dragindexRef = useRef();
-  const [showPortal, setShowPortal] = useState(false);
-  const [portalData, setPortalData] = useState({});
+const [events, setEvents] = useState([]);
+const dragDateRef = useRef();
+const dragindexRef = useRef();
+const [showPortal, setShowPortal] = useState(false);
+const [portalData, setPortalData] = useState({});
+const [feeds, setFeeds] = useState([]);
 
-  const addEvent = (date, event) => {
-    if (!event.target.classList.contains("StyledEvent")) {
-      const text = window.prompt("name");
-      if (text) {
-        date.setHours(0);
-        date.setSeconds(0);
-        date.setMilliseconds(0);
-        setEvents((prev) => [
-          ...prev,
-          { date, title: text, color: getDarkColor() }
-        ]);
-      }
+useEffect(() => {
+  axios
+    .get(apiurl.getContent)
+    .then((response) => {
+      setFeeds(response.data);
+      const formattedEvents = response.data.map((feed) => ({
+        date: new Date(feed.post_date),
+        title: feed.post_title,
+        color: getDarkColor()
+      }));
+      setEvents(formattedEvents);
+    })
+    .catch((error) => console.log(error));
+}, []);
+
+const addEvent = (date, event) => {
+  if (!event.target.classList.contains("StyledEvent")) {
+    const text = window.prompt("name");
+    if (text) {
+      date.setHours(0);
+      date.setSeconds(0);
+      date.setMilliseconds(0);
+      setEvents((prev) => [
+        ...prev,
+        { date, title: text, color: getDarkColor() }
+      ]);
     }
-  };
-
+  } else {
+    const eventTitle = event.target.innerText;
+    const feedEvent = feeds.find((feed) => feed.post_title === eventTitle);
+    if (feedEvent) {
+      setEvents((prev) => [...prev, { date, title: feedEvent.post_title, color: getDarkColor() }]);
+    }
+  }
+};
   const drag = (index, e) => {
     dragindexRef.current = { index, target: e.target };
   };
@@ -112,7 +134,7 @@ const EventCalendar = () => {
         >
           {getSortedDays(currentDate).map((day) => (
             <div
-              id={`${currentDate.getFullYear()}/${currentDate.getMonth()}/${day}`}
+              // id={`${currentDate.getFullYear()}/${currentDate.getMonth()}/${day}`}
               onDragEnter={(e) =>
                 onDragEnter(
                   new Date(
@@ -169,9 +191,9 @@ const EventCalendar = () => {
                         className="StyledEvent"
                         id={`${ev.color} ${ev.title}`}
                         key={ev.title}
-                        bgColor={ev.color}
+                        // bgColor={ev.color}
                       >
-                        {ev.title}
+                        {ev.title ? <div className="dot"></div> : <div></div>}
                       </StyledEvent>
                     )
                 )}

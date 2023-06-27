@@ -59,7 +59,7 @@ export const SevenColGrid = styled.div`
       position: relative;
     }
     span.active::before {
-      content: "Today ";
+      // content: "Today ";
       font-size: 14px;
     }
   }

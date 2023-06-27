@@ -16,6 +16,7 @@ function Navbar() {
             </div>
             <div className='right'>
                 <PersonIcon className='user'></PersonIcon>
+                
             </div>
         </div>
     )
