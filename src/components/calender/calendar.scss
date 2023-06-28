@@ -1,6 +1,242 @@
+$color-pink: pink;
+$color-red: red;
+$bgColor :pink;
+$color-lightblue: lightblue;
+
+$border-width: 2px;
+$border-color: black;
+$border-radius: 6px;
+$box-shadow: 10px 10px 20px black;
+
+$font-size-12px: 12px;
+$font-size-13px: 13px;
+$font-size-14px: 14px;
+$font-size-16px: 16px;
+$font-size-2rem: 2rem;
+$font-size-3rem: 3rem;
+$font-size-2rem: 1.6rem;
+
+$padding-0: 0px;
+$padding-2px: 2px;
+$padding-5px: 5px;
+$padding-10px: 10px;
+$padding-20px: 20px;
+$padding-35px: 35px;
+$padding-40px: 40px;
+
+$margin-10px: 10px;
+$margin-bottom-15px: 15px;
+$margin-2px:2px;
+
+$height-90vh: 90vh;
+$height-100: 100%;
+$height-30px: 30px;
+
+$width-80: 80%;
+$width-100: 100%;
+
+$display-flex: flex;
+$display-grid: grid;
+$justify-content-center: center;
+$align-items-center: center;
+
+$text-align-left: left;
+$text-align-right: right;
+$text-transform-capitalize: capitalize;
+
+@mixin event-styling($bgColor) {
+  background: $bgColor;
+  color: white;
+  text-align: $text-align-left !important;
+  padding: $padding-2px $padding-10px;
+  margin: 0 $margin-2px;
+  border-radius: $border-radius;
+  font-size: $font-size-13px;
+  cursor: move;
+  text-transform: $text-transform-capitalize;
+}
+
+.wrapper {
+  border: $border-width solid;
+  height: $height-90vh;
+  display: $display-flex;
+  width: $width-80;
+  margin: $margin-10px;
+}
+
+.calendar-head {
+  width: $width-100;
+  height: $height-100;
+  display: $display-flex;
+  justify-content: $justify-content-center;
+}
+
+.styled-event {
+  @include event-styling($bgColor);
+}
+
+.seven-col-grid {
+  display: $display-grid;
+  grid-template-columns: repeat(7, 1fr);
+  height: calc(#{$height-100} - 185px);
+
+  &[fullheight="true"] {
+    height: calc(#{$height-100} - 185px);
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  &[fullheight="true"][is28Days="true"] {
+    height: calc(#{$height-100} - 185px);
+    grid-template-rows: repeat(5, 1fr);
+  }
+
+  div {
+    display: $display-grid;
+
+    .styled-event {
+      display: none;
+    }
+
+    .styled-event:nth-child(-n + 3) {
+      display: block;
+    }
+
+    span {
+      text-align: $text-align-right;
+      padding-right: $padding-35px;
+      padding-top: $padding-10px;
+      height: fit-content;
+      font-weight: 400;
+    }
+
+    span.active {
+      background-color: $color-pink;
+      border-bottom: $border-width solid $color-red;
+      position: relative;
+    }
+
+    span.active::before {
+      content: "Today ";
+      font-size: $font-size-14px;
+    }
+  }
+}
+
+.head-days {
+  text-align: center;
+  border: $border-width solid;
+  height: $height-30px;
+  padding: $padding-5px;
+  background: #3788d8;
+  color: white;
+}
+
+.date-controls {
+  width: $width-100;
+  display: $display-flex;
+  justify-content: space-around;
+  padding: $padding-10px 0;
+  align-items: $align-items-center;
+
+  ion-icon {
+    font-size: $font-size-2rem;
+    cursor: pointer;
+  }
+}
+
+.see-more {
+  font-size: $font-size-12px;
+  padding: $padding-0 $padding-5px;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.portal-wrapper {
+  background: white;
+  position: absolute;
+  width: 60%;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  border: $border-width solid;
+  border-radius: $border-radius;
+  transform: translate(-50%, -50%);
+  box-shadow: $box-shadow;
+  padding: $padding-40px;
+
+  h2 {
+    font-size: $font-size-3rem;
+  }
+
+  ion-icon {
+    font-size: $font-size-2rem;
+    color: $color-red;
+    background: $color-lightblue;
+    padding: $padding-10px $padding-20px;
+    border-radius: $border-radius;
+  }
+
+  p {
+    margin-bottom: $margin-bottom-15px;
+  }
+
+  ion-icon[name="close-outline"] {
+    position: absolute;
+    top: $padding-10px;
+    right: $padding-10px;
+    background: $color-red;
+    color: $color-lightblue;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: "Roboto Mono", monospace;
   }
+
+  
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 55%;
+      background-color: #cc2525;
+      align-items: center;
+      margin-left: 30px;
+    }
+    
+  

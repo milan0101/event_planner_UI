@@ -1,6 +1,5 @@
 import React from "react";
-import { useRef, useState , useEffect } from "react";
-import './calendar.scss';
+import { useRef, useState } from "react";
 import {
   SevenColGrid,
   Wrapper,
@@ -9,9 +8,10 @@ import {
   StyledEvent,
   SeeMore,
   PortalWrapper
-} from "./Calender.styled";
+} from "./Smallcalendar.styled";
+import './calendar.scss';
 import Drawer from 'react-modern-drawer';
-import { DAYS, MOCKAPPS } from "./conts";
+import { Days, MOCKAPPS } from "./conts";
 import {
   datesAreOnSameDay,
   getDarkColor,
@@ -23,54 +23,33 @@ import {
   range,
   sortDays
 } from "./utils";
-import { apiurl } from "../config/apiUrl";
-import axios from "axios";
+import CloseIcon from '@mui/icons-material/Close';
+import { left, right } from "@popperjs/core";
 
 
-const EventCalendar = () => {
+const EventSmallCalendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date(2023, 5, 15));
-const [events, setEvents] = useState([]);
-const dragDateRef = useRef();
-const dragindexRef = useRef();
-const [showPortal, setShowPortal] = useState(false);
-const [portalData, setPortalData] = useState({});
-const [feeds, setFeeds] = useState([]);
+  const [events, setEvents] = useState(MOCKAPPS);
+  const dragDateRef = useRef();
+  const dragindexRef = useRef();
+  const [showPortal, setShowPortal] = useState(false);
+  const [portalData, setPortalData] = useState({});
 
-useEffect(() => {
-  axios
-    .get(apiurl.getContent)
-    .then((response) => {
-      setFeeds(response.data);
-      const formattedEvents = response.data.map((feed) => ({
-        date: new Date(feed.post_date),
-        title: feed.post_title,
-        color: getDarkColor()
-      }));
-      setEvents(formattedEvents);
-    })
-    .catch((error) => console.log(error));
-}, []);
+  const addEvent = (date, event) => {
+    if (!event.target.classList.contains("StyledEvent")) {
+      const text = window.prompt("name");
+      if (text) {
+        date.setHours(0);
+        date.setSeconds(0);
+        date.setMilliseconds(0);
+        setEvents((prev) => [
+          ...prev,
+          { date, title: text, color: getDarkColor() }
+        ]);
+      }
+    }
+  };
 
-// const addEvent = (date, event) => {
-//   if (!event.target.classList.contains("StyledEvent")) {
-//     const text = window.prompt("name");
-//     if (text) {
-//       date.setHours(0);
-//       date.setSeconds(0);
-//       date.setMilliseconds(0);
-//       setEvents((prev) => [
-//         ...prev,
-//         { date, title: text, color: getDarkColor() }
-//       ]);
-//     }
-//   } else {
-//     const eventTitle = event.target.innerText;
-//     const feedEvent = feeds.find((feed) => feed.post_title === eventTitle);
-//     if (feedEvent) {
-//       setEvents((prev) => [...prev, { date, title: feedEvent.post_title, color: getDarkColor() }]);
-//     }
-//   }
-// };
   const drag = (index, e) => {
     dragindexRef.current = { index, target: e.target };
   };
@@ -123,7 +102,7 @@ useEffect(() => {
           ></ion-icon>
         </DateControls>
         <SevenColGrid>
-          {DAYS.map((day) => (
+          {Days.map((day) => (
             <HeadDays className="nonDRAG">{day}</HeadDays>
           ))}
         </SevenColGrid>
@@ -134,7 +113,7 @@ useEffect(() => {
         >
           {getSortedDays(currentDate).map((day) => (
             <div
-              // id={`${currentDate.getFullYear()}/${currentDate.getMonth()}/${day}`}
+              id={`${currentDate.getFullYear()}/${currentDate.getMonth()}/${day}`}
               onDragEnter={(e) =>
                 onDragEnter(
                   new Date(
@@ -147,16 +126,16 @@ useEffect(() => {
               }
               onDragOver={(e) => e.preventDefault()}
               onDragEnd={drop}
-              // onClick={(e) =>
-              //   addEvent(
-              //     new Date(
-              //       currentDate.getFullYear(),
-              //       currentDate.getMonth(),
-              //       day
-              //     ),
-              //     e
-              //   )
-              // }
+              onClick={(e) =>
+                addEvent(
+                  new Date(
+                    currentDate.getFullYear(),
+                    currentDate.getMonth(),
+                    day
+                  ),
+                  e
+                )
+              }
             >
               <span
                 className={`nonDRAG ${datesAreOnSameDay(
@@ -191,9 +170,9 @@ useEffect(() => {
                         className="StyledEvent"
                         id={`${ev.color} ${ev.title}`}
                         key={ev.title}
-                        // bgColor={ev.color}
+                        bgColor={ev.color}
                       >
-                        {ev.title ? <div className="dot"></div> : <div></div>}
+                       {ev.title ?  <div className="dot"></div> : <div></div>}
                       </StyledEvent>
                     )
                 )}
@@ -204,7 +183,7 @@ useEffect(() => {
         {showPortal && (
           <Portal
             {...portalData}
-            // handleDelete={handleDelete}
+            handleDelete={handleDelete}
             handlePotalClose={handlePotalClose}
           />
         )}
@@ -237,11 +216,11 @@ const Portal = ({ title, date, handleDelete, handlePotalClose }) => {
     <PortalWrapper>
       <h2>{title}</h2>
       <p>{date.toDateString()}</p>
-      {/* <ion-icon onClick={handleDelete} name="trash-outline"></ion-icon> */}
+      <ion-icon onClick={handleDelete} name="trash-outline"></ion-icon>
       <ion-icon onClick={handlePotalClose} name="close-outline"></ion-icon>
     </PortalWrapper>
   );
 };
 
 
-export default EventCalendar;
+export default EventSmallCalendar;

@@ -1,6 +1,7 @@
 import React, { forwardRef, useImperativeHandle, useState } from 'react';
 import Drawer from "../common"
 import Upcoming from '../Upcoming/Upcoming';
+import EventSmallCalendar from '../calender/Smallcalendar';
 
 
 const EventsDrawer = forwardRef((props, ref) => {
@@ -28,7 +29,8 @@ const EventsDrawer = forwardRef((props, ref) => {
       direction="right"
       >
         <div>
-          <Upcoming></Upcoming>
+          {/* <Upcoming></Upcoming> */}
+          <EventSmallCalendar></EventSmallCalendar>
         </div>
       </Drawer>
     );
