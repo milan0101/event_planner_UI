@@ -24,7 +24,7 @@ export const StyledEvent = styled.span`
   margin: 0 2px;
   border-radius: 10px;
   font-size: 13px;
-  cursor: move;
+  cursor: pointer;
   text-transform: capitalize;
 `;
 
@@ -64,7 +64,7 @@ export const SevenColGrid = styled.div`
     }
   }
 `;
-
+ 
 export const HeadDays = styled.span`
   text-align: center;
   border: 1px solid;

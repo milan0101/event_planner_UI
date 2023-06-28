@@ -1,6 +1,6 @@
 import React from "react";
 import { useRef, useState , useEffect } from "react";
-// import  
+import './calendar.scss';
 import {
   SevenColGrid,
   Wrapper,
@@ -51,26 +51,26 @@ useEffect(() => {
     .catch((error) => console.log(error));
 }, []);
 
-const addEvent = (date, event) => {
-  if (!event.target.classList.contains("StyledEvent")) {
-    const text = window.prompt("name");
-    if (text) {
-      date.setHours(0);
-      date.setSeconds(0);
-      date.setMilliseconds(0);
-      setEvents((prev) => [
-        ...prev,
-        { date, title: text, color: getDarkColor() }
-      ]);
-    }
-  } else {
-    const eventTitle = event.target.innerText;
-    const feedEvent = feeds.find((feed) => feed.post_title === eventTitle);
-    if (feedEvent) {
-      setEvents((prev) => [...prev, { date, title: feedEvent.post_title, color: getDarkColor() }]);
-    }
-  }
-};
+// const addEvent = (date, event) => {
+//   if (!event.target.classList.contains("StyledEvent")) {
+//     const text = window.prompt("name");
+//     if (text) {
+//       date.setHours(0);
+//       date.setSeconds(0);
+//       date.setMilliseconds(0);
+//       setEvents((prev) => [
+//         ...prev,
+//         { date, title: text, color: getDarkColor() }
+//       ]);
+//     }
+//   } else {
+//     const eventTitle = event.target.innerText;
+//     const feedEvent = feeds.find((feed) => feed.post_title === eventTitle);
+//     if (feedEvent) {
+//       setEvents((prev) => [...prev, { date, title: feedEvent.post_title, color: getDarkColor() }]);
+//     }
+//   }
+// };
   const drag = (index, e) => {
     dragindexRef.current = { index, target: e.target };
   };
@@ -147,16 +147,16 @@ const addEvent = (date, event) => {
               }
               onDragOver={(e) => e.preventDefault()}
               onDragEnd={drop}
-              onClick={(e) =>
-                addEvent(
-                  new Date(
-                    currentDate.getFullYear(),
-                    currentDate.getMonth(),
-                    day
-                  ),
-                  e
-                )
-              }
+              // onClick={(e) =>
+              //   addEvent(
+              //     new Date(
+              //       currentDate.getFullYear(),
+              //       currentDate.getMonth(),
+              //       day
+              //     ),
+              //     e
+              //   )
+              // }
             >
               <span
                 className={`nonDRAG ${datesAreOnSameDay(
@@ -204,7 +204,7 @@ const addEvent = (date, event) => {
         {showPortal && (
           <Portal
             {...portalData}
-            handleDelete={handleDelete}
+            // handleDelete={handleDelete}
             handlePotalClose={handlePotalClose}
           />
         )}
@@ -237,7 +237,7 @@ const Portal = ({ title, date, handleDelete, handlePotalClose }) => {
     <PortalWrapper>
       <h2>{title}</h2>
       <p>{date.toDateString()}</p>
-      <ion-icon onClick={handleDelete} name="trash-outline"></ion-icon>
+      {/* <ion-icon onClick={handleDelete} name="trash-outline"></ion-icon> */}
       <ion-icon onClick={handlePotalClose} name="close-outline"></ion-icon>
     </PortalWrapper>
   );
