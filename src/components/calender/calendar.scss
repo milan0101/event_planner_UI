@@ -237,6 +237,11 @@ $text-transform-capitalize: capitalize;
       background-color: #cc2525;
       align-items: center;
       margin-left: 30px;
+      cursor: pointer;
     }
     
+    .dot.blue {
+      background-color: blue;
+      cursor: pointer;
+    }
   

@@ -1,33 +1,26 @@
-import React from 'react';
+const EventWrapper = ({ children }) => {
+  const eventCount = children.filter((child) => child).length;
+  const dotColor = eventCount > 1 ? "blue" : "red";
+  const events = children.filter((child) => child);
 
-const Table = ({ data }) => {
-  const versions = Object.keys(data);
+  const handleDotClick = (e) => {
+    e.stopPropagation();
+    setShowPortal(true);
+    setPortalData(events);
+    setHighlightedDate(null);
+  };
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Version</th>
-          <th>Month</th>
-          <th>May</th>
-          <th>April</th>
-        </tr>
-      </thead>
-      <tbody>
-        {versions.map((version) => {
-          const tableData = data[version]['nexus_train_base'];
-          return tableData.map((row, index) => (
-            <tr key={`${version}_${index}`}>
-              <td>{version}</td>
-              <td>nexus_train_base</td>
-              <td>{row.may}</td>
-              <td>{row.April}</td>
-            </tr>
-          ));
-        })}
-      </tbody>
-    </table>
+    <>
+      {eventCount > 0 && (
+        <div
+          className="dot"
+          style={{
+            backgroundColor: dotColor,
+          }}
+          onClick={handleDotClick}
+        ></div>
+      )}
+    </>
   );
 };
-
-export default Table;

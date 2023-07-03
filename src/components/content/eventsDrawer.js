@@ -29,8 +29,7 @@ const EventsDrawer = forwardRef((props, ref) => {
       direction="right"
       >
         <div>
-          {/* <Upcoming></Upcoming> */}
-          <EventSmallCalendar></EventSmallCalendar>
+          <Upcoming></Upcoming>
         </div>
       </Drawer>
     );
