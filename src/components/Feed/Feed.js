@@ -17,41 +17,41 @@ function Feeds() {
       .catch((error) => console.log(error));
   }, []);
 
-  useEffect(() => {
-    const cropImages = async () => {
-      for (let i = 0; i < feeds.length; i++) {
-        const feed = feeds[i];
-        const image = new Image();
-        image.src = feed.post_img;
-        const targetWidth = 300; // Specify the desired width of the resized image
-        const targetHeight = 200; // Specify the desired height of the resized image
+  // useEffect(() => {
+  //   const cropImages = async () => {
+  //     for (let i = 0; i < feeds.length; i++) {
+  //       const feed = feeds[i];
+  //       const image = new Image();
+  //       image.src = feed.post_img;
+  //       const targetWidth = 300; // Specify the desired width of the resized image
+  //       const targetHeight = 200; // Specify the desired height of the resized image
 
-        try {
-          const result = await smartcrop.crop(image, { width: targetWidth, height: targetHeight });
-          const crop = result.topCrop;
-          const canvas = document.createElement('canvas');
-          const ctx = canvas.getContext('2d');
-          canvas.width = targetWidth;
-          canvas.height = targetHeight;
-          ctx.drawImage(image, crop.x, crop.y, crop.width, crop.height, 0, 0, targetWidth, targetHeight);
-          const croppedUrl = canvas.toDataURL(); // Get the cropped image as a data URL
+  //       try {
+  //         const result = await smartcrop.crop(image, { width: targetWidth, height: targetHeight });
+  //         const crop = result.topCrop;
+  //         const canvas = document.createElement('canvas');
+  //         const ctx = canvas.getContext('2d');
+  //         canvas.width = targetWidth;
+  //         canvas.height = targetHeight;
+  //         ctx.drawImage(image, crop.x, crop.y, crop.width, crop.height, 0, 0, targetWidth, targetHeight);
+  //         const croppedUrl = canvas.toDataURL(); // Get the cropped image as a data URL
 
-          // Update the feeds state with the cropped image URL
-          setFeeds((prevFeeds) => {
-            const updatedFeeds = [...prevFeeds];
-            updatedFeeds[i].post_img = croppedUrl;
-            return updatedFeeds;
-          });
-        } catch (error) {
-          console.log(`Error cropping image: ${error}`);
-        }
-      }
-    };
+  //         // Update the feeds state with the cropped image URL
+  //         setFeeds((prevFeeds) => {
+  //           const updatedFeeds = [...prevFeeds];
+  //           updatedFeeds[i].post_img = croppedUrl;
+  //           return updatedFeeds;
+  //         });
+  //       } catch (error) {
+  //         console.log(`Error cropping image: ${error}`);
+  //       }
+  //     }
+  //   };
 
-    if (feeds.length > 0) {
-      cropImages();
-    }
-  }, [feeds]);
+  //   if (feeds.length > 0) {
+  //     cropImages();
+  //   }
+  // }, [feeds]);
 
   return (
     <div className="fb">

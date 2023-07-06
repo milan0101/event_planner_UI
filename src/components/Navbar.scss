@@ -9,7 +9,39 @@
     width: 100%;
     z-index: 1;
   }
+  h3{
+    font-family: revert;
+  }
+
+  .micons{
+    cursor: pointer;
+  }
   
+.ebtn{
+  display: flex;
+  justify-content: end;
+
+}
+.ebutton{
+  height: 40px;
+  width: 100px;
+  border-radius: 20px;
+}
+.etitle{
+  display: flex;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.einput{
+  margin-left: 20px;
+  font-size: medium;
+  padding: 5px;
+  height: 32px;
+  border-radius: 2px;
+  border-width: 1px;
+  line-height: 30px;
+}
   .left {
     display: flex;
     align-items: center;
@@ -40,6 +72,12 @@
   // .scal{
   //   display: none;
   // }
+
+  .react-daterange-picker_day{
+    height: 35px;
+    margin-left: 20px;
+    border-radius: 50px;
+  }
   @media only screen and (max-width: 480px) {
     .nav {
         background-color: #2e5ae8;

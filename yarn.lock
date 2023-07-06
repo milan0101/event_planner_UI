@@ -2521,7 +2521,7 @@
     "@types/prop-types" "*"
     "@types/react" "*"
 
-"@types/react-dom@^18.0.0":
+"@types/react-dom@*", "@types/react-dom@^18.0.0":
   "integrity" "sha512-G2mHoTMTL4yoydITgOGwWdWMVd8sNgyEP85xVmMKAPUBwQWm9wBPQUmvbeF4V3WBY1P7mmL4BkjQ0SqUpf1snw=="
   "resolved" "https://registry.npmjs.org/@types/react-dom/-/react-dom-18.2.4.tgz"
   "version" "18.2.4"
@@ -2872,6 +2872,18 @@
   "integrity" "sha512-Fjs0KJz0//0AmlJVFx9AQmWpmxOTw4foDo4DKoswWVVjHsna4rdu+fXwid5YHNgzv/wHi9AkZCRPmHWsf890lg=="
   "resolved" "https://registry.npmjs.org/@wojtekmaj/date-utils/-/date-utils-1.4.1.tgz"
   "version" "1.4.1"
+
+"@wojtekmaj/react-daterange-picker@^5.2.0":
+  "integrity" "sha512-pDr689IrW4KLU8XbSCOFq3rY0T8JJKdc3yeACN667wgCAzAjjUii10UgCl0XivD2JXogS8LfnzrlrtN07+VSug=="
+  "resolved" "https://registry.npmjs.org/@wojtekmaj/react-daterange-picker/-/react-daterange-picker-5.2.0.tgz"
+  "version" "5.2.0"
+  dependencies:
+    "clsx" "^1.2.1"
+    "make-event-props" "^1.4.2"
+    "prop-types" "^15.6.0"
+    "react-calendar" "^4.2.1"
+    "react-date-picker" "^10.2.0"
+    "react-fit" "^1.5.1"
 
 "@xtuc/ieee754@^1.2.0":
   "integrity" "sha512-DX8nKgqcGwsc0eJSqYt5lwP4DH5FlHnmuWWBRy7X0NcaGR0ZtuyeESgMwTYVEtxmsNGY+qit4QYT/MIYTOTPeA=="
@@ -4437,6 +4449,11 @@
   "resolved" "https://registry.npmjs.org/destroy/-/destroy-1.2.0.tgz"
   "version" "1.2.0"
 
+"detect-element-overflow@^1.3.1":
+  "integrity" "sha512-6a1wXl5+KbnXhO5FWgKq+omp8km42QLWgd1UYj99SS6o/aYBuTPU/ByI9dLgPYi9aes5TAg62IRoRKpqrDb0PQ=="
+  "resolved" "https://registry.npmjs.org/detect-element-overflow/-/detect-element-overflow-1.4.1.tgz"
+  "version" "1.4.1"
+
 "detect-newline@^3.0.0":
   "integrity" "sha512-TLz+x/vEXm/Y7P7wn1EJFNLxYpUD4TgMosxY6fAVJUnJMbupHBOncxyWUG9OpTaH9EBD7uFI5LfEgmMOc54DsA=="
   "resolved" "https://registry.npmjs.org/detect-newline/-/detect-newline-3.1.0.tgz"
@@ -5121,6 +5138,11 @@
     "onetime" "^5.1.2"
     "signal-exit" "^3.0.3"
     "strip-final-newline" "^2.0.0"
+
+"exenv@^1.2.0":
+  "integrity" "sha512-Z+ktTxTwv9ILfgKCk32OX3n/doe+OcLTRtqK9pcL+JsP3J1/VW8Uvl4ZjLlKqeW4rzK4oesDOGMEMRIZqtP4Iw=="
+  "resolved" "https://registry.npmjs.org/exenv/-/exenv-1.2.2.tgz"
+  "version" "1.2.2"
 
 "exit@^0.1.2":
   "integrity" "sha512-Zk/eNKV2zbjpKzrsQ+n1G6poVbErQxJ0LBOJXaKZ1EViLzH+hrLu9cdXI4zw9dBQJslwBEpbQ2P1oS7nDxs6jQ=="
@@ -7297,6 +7319,11 @@
   dependencies:
     "semver" "^6.0.0"
 
+"make-event-props@^1.4.2":
+  "integrity" "sha512-JhvWq/iz1BvlmnPvLJjXv+xnMPJZuychrDC68V+yCGQJn5chcA8rLGKo5EP1XwIKVrigSXKLmbeXAGkf36wdCQ=="
+  "resolved" "https://registry.npmjs.org/make-event-props/-/make-event-props-1.6.1.tgz"
+  "version" "1.6.1"
+
 "make-fetch-happen@^10.0.4":
   "integrity" "sha512-NgOPbRiaQM10DYXvN3/hhGVI2M5MtITFryzBGxHM5p4wnFxsVCbxkrBrDsk+EZ5OB4jEOT7AjDxtdF+KVEFT7w=="
   "resolved" "https://registry.npmjs.org/make-fetch-happen/-/make-fetch-happen-10.2.1.tgz"
@@ -8912,7 +8939,7 @@
     "react-overlays" "^5.2.1"
     "uncontrollable" "^7.2.1"
 
-"react-calendar@^4.3.0":
+"react-calendar@^4.2.1", "react-calendar@^4.3.0":
   "integrity" "sha512-TyCv8NbXnqXADyXNtMG0szkGvJNH3NG/WMTEE2q6g3RqAsFNyHwYbQD5Kvb6jRV/CqO0WB+oMCtkxblprdeT5A=="
   "resolved" "https://registry.npmjs.org/react-calendar/-/react-calendar-4.3.0.tgz"
   "version" "4.3.0"
@@ -8922,6 +8949,20 @@
     "clsx" "^1.2.1"
     "get-user-locale" "^2.2.1"
     "prop-types" "^15.6.0"
+
+"react-date-picker@^10.2.0":
+  "integrity" "sha512-AapiakQ9hY2sPNyaBgLJgPDXeeZyiC3Px75jWbkB9NwJqX1gAwRQ7O8qshRqGWJX7T4/cUh6n59j+N+M4GpGow=="
+  "resolved" "https://registry.npmjs.org/react-date-picker/-/react-date-picker-10.2.0.tgz"
+  "version" "10.2.0"
+  dependencies:
+    "@wojtekmaj/date-utils" "^1.1.3"
+    "clsx" "^1.2.1"
+    "get-user-locale" "^2.2.1"
+    "make-event-props" "^1.4.2"
+    "prop-types" "^15.6.0"
+    "react-calendar" "^4.2.1"
+    "react-fit" "^1.5.1"
+    "update-input-width" "^1.3.1"
 
 "react-dev-utils@^12.0.1":
   "integrity" "sha512-84Ivxmr17KjUupyqzFode6xKhjwuEJDROWKJy/BthkL7Wn6NJ8h4WE6k/exAv6ImS+0oZLRRW5j/aINMHyeGeQ=="
@@ -8979,6 +9020,17 @@
   "resolved" "https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-2.0.4.tgz"
   "version" "2.0.4"
 
+"react-fit@^1.5.1":
+  "integrity" "sha512-r86m/6GuJa7j6dLYjC7kENBQRBaDMLTU0mBBoqnh42d/Iil9rmWEeOtdB2KEQEUyDQ8rZXojIx8u+gNFJ+9y1w=="
+  "resolved" "https://registry.npmjs.org/react-fit/-/react-fit-1.5.1.tgz"
+  "version" "1.5.1"
+  dependencies:
+    "@types/react" "*"
+    "@types/react-dom" "*"
+    "detect-element-overflow" "^1.3.1"
+    "prop-types" "^15.6.0"
+    "tiny-warning" "^1.0.0"
+
 "react-is@^16.13.1":
   "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
@@ -8999,10 +9051,20 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-18.2.0.tgz"
   "version" "18.2.0"
 
-"react-lifecycles-compat@^3.0.4":
+"react-lifecycles-compat@^3.0.0", "react-lifecycles-compat@^3.0.4":
   "integrity" "sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA=="
   "resolved" "https://registry.npmjs.org/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz"
   "version" "3.0.4"
+
+"react-modal@^3.16.1":
+  "integrity" "sha512-VStHgI3BVcGo7OXczvnJN7yT2TWHJPDXZWyI/a0ssFNhGZWsPmB8cF0z33ewDXq4VfYMO1vXgiv/g8Nj9NDyWg=="
+  "resolved" "https://registry.npmjs.org/react-modal/-/react-modal-3.16.1.tgz"
+  "version" "3.16.1"
+  dependencies:
+    "exenv" "^1.2.0"
+    "prop-types" "^15.7.2"
+    "react-lifecycles-compat" "^3.0.0"
+    "warning" "^4.0.3"
 
 "react-modern-drawer@^1.2.0":
   "integrity" "sha512-GBQaeDNpnt6GFm3U9y/wzkZerP6R92CrgC9ge3/PHCm0F0LdUzt7rjFSwdd47Pdy6+FhXKR2rn7VxW3pl/+m9w=="
@@ -10318,7 +10380,7 @@
   "resolved" "https://registry.npmjs.org/tiny-case/-/tiny-case-1.0.3.tgz"
   "version" "1.0.3"
 
-"tiny-warning@^1.0.2":
+"tiny-warning@^1.0.0", "tiny-warning@^1.0.2":
   "integrity" "sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA=="
   "resolved" "https://registry.npmjs.org/tiny-warning/-/tiny-warning-1.0.3.tgz"
   "version" "1.0.3"
@@ -10614,6 +10676,11 @@
   dependencies:
     "escalade" "^3.1.1"
     "picocolors" "^1.0.0"
+
+"update-input-width@^1.3.1":
+  "integrity" "sha512-/FDlfTvxlEQ9+/duf5PoC1q0uYQd/nE4w7K7rVAAoW/QKKa4bdhccuPaWtfkrWEy2r08rzX6wlmCHeGL+vgJOw=="
+  "resolved" "https://registry.npmjs.org/update-input-width/-/update-input-width-1.4.1.tgz"
+  "version" "1.4.1"
 
 "uri-js@^4.2.2":
   "integrity" "sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg=="

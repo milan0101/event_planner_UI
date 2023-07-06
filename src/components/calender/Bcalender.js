@@ -73,7 +73,7 @@ const EventCalendar = () => {
   };
 
   const handleOnClickEvent = (event) => {
-    console.log("Clicked event:", event);
+    console.log(event);
     setShowPortal(true);
     setPortalData(event);
     setHighlightedDate(event.date);
@@ -83,6 +83,7 @@ const EventCalendar = () => {
     setShowPortal(false);
     setHighlightedDate(null);
   };
+
 
   const handleDelete = () => {
     setEvents((prevEvents) =>
@@ -115,20 +116,14 @@ const EventCalendar = () => {
           ))}
         </SevenColGrid>
 
-        <SevenColGrid
-          fullheight={true}
-          is28Days={getDaysInMonth(currentDate) === 28}
-        >
+
+        <SevenColGrid fullheight={true} is28Days={getDaysInMonth(currentDate) === 28}>
           {getSortedDays(currentDate).map((day) => (
             <div
               key={day}
               onDragEnter={(e) =>
                 onDragEnter(
-                  new Date(
-                    currentDate.getFullYear(),
-                    currentDate.getMonth(),
-                    day
-                  ),
+                  new Date(currentDate.getFullYear(), currentDate.getMonth(), day),
                   e
                 )
               }
@@ -138,15 +133,11 @@ const EventCalendar = () => {
               <span
                 className={`nonDRAG ${datesAreOnSameDay(
                   new Date(),
-                  new Date(
-                    currentDate.getFullYear(),
-                    currentDate.getMonth(),
-                    day
-                  )
+                  new Date(currentDate.getFullYear(), currentDate.getMonth(), day)
                 )
                   ? "active"
                   : ""
-                }`}
+                  }`}
               >
                 {day}
               </span>
@@ -155,11 +146,7 @@ const EventCalendar = () => {
                   (ev, index) =>
                     datesAreOnSameDay(
                       ev.date,
-                      new Date(
-                        currentDate.getFullYear(),
-                        currentDate.getMonth(),
-                        day
-                      )
+                      new Date(currentDate.getFullYear(), currentDate.getMonth(), day)
                     ) && (
                       <StyledEvent
                         onDragStart={(e) => drag(index, e)}
@@ -168,10 +155,7 @@ const EventCalendar = () => {
                         className={`StyledEvent ${datesAreOnSameDay(
                           ev.date,
                           highlightedDate
-                        )
-                          ? "highlighted"
-                          : ""
-                        }`}
+                        ) ? "highlighted" : ""}`}
                         id={`${ev.color} ${ev.title}`}
                         key={ev.title}
                       >
@@ -180,47 +164,66 @@ const EventCalendar = () => {
                     )
                 )}
               </EventWrapper>
+
             </div>
           ))}
         </SevenColGrid>
+
       </Wrapper>
       {showPortal && (
         <Portal
           title={portalData.title}
           date={portalData.date}
-          events={events.filter((ev) => ev.title === portalData.title)}
+          events={events.filter((ev) => ev.date.getTime() === portalData.date.getTime())}
           handleDelete={handleDelete}
           handlePortalClose={handlePotalClose}
         />
       )}
+
     </div>
   );
 };
-
 const EventWrapper = ({ children, handleOnClickEvent }) => {
   const eventCount = children.filter((child) => child).length;
-  const dotColor = eventCount > 1 ? "blue" : "red";
+  // const dotColor = eventCount > 0 ? (eventCount > 1 ? "blue" : "red") : "";
 
   return (
     <>
       {eventCount > 0 && (
-        <div
-          className="dot"
-          style={{
-            backgroundColor: dotColor,
-          }}
-          onClick={handleOnClickEvent}
-        ></div>
+        <div  onClick={handleOnClickEvent}></div>
       )}
+      {children}
     </>
   );
 };
 
+
+
+
+// const Portal = ({ title, date, events, handleDelete, handlePortalClose }) => {
+//   const dateStr = date ? date.toDateString() : '';
+
+//   return (
+//     <PortalWrapper>
+//       <h2>{title}</h2>
+//       <p>{dateStr}</p>
+//       {events
+//         .filter((event) => datesAreOnSameDay(event.date, date))
+//         .map((event, index) => (
+//           <div key={index}>{event.title}</div>
+//         ))}
+
+//       <ion-icon onClick={handlePortalClose} name="close-outline"></ion-icon>
+//     </PortalWrapper>
+//   );
+// };
 const Portal = ({ title, date, events, handleDelete, handlePortalClose }) => {
+  const dateStr = date ? date.toDateString() : '';
+
   return (
     <PortalWrapper>
       <h2>{title}</h2>
-      <p>{date.toDateString()}</p>
+      <p>{dateStr}</p>
       {events.map((event, index) => (
         <div key={index}>{event.title}</div>
       ))}
@@ -228,5 +231,7 @@ const Portal = ({ title, date, events, handleDelete, handlePortalClose }) => {
     </PortalWrapper>
   );
 };
+
+
 
 export default EventCalendar;
