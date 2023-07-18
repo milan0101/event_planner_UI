@@ -14,6 +14,7 @@ import '@wojtekmaj/react-daterange-picker/dist/DateRangePicker.css';
 import 'react-calendar/dist/Calendar.css';
 import DateRangePicker from '@wojtekmaj/react-daterange-picker';
 import Modale from './common/Modal';
+import MyModal from './common/Mymodal';
 
 function Navbar() {
 
@@ -48,6 +49,9 @@ function Navbar() {
             </div>
             <Modale open={open}
                 onClose={handleClose}></Modale>
+                {/* <MyModal open={open}
+                onclose={handleClose}
+                ></MyModal> */}
             <div className='right'>
                 <PersonIcon className='user'></PersonIcon>
             </div>

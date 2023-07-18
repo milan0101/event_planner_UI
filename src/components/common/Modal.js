@@ -30,12 +30,9 @@ const Modale = (props) => {
         boxShadow: 24,
         p: 4,
     };
-
     const handleCategoryChange = (event) => {
         setCategory(event.target.value)
     }
-
-
     return (
         <div>
             <Modal
