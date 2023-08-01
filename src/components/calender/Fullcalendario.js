@@ -4,10 +4,12 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import AddEventModal from './AddEventModal';
 import axios from 'axios';
 import moment from 'moment';
+import { apiurl } from "../config/apiUrl";
 
 function Calendar({ onClose }) {
   const [mopen, setMopen] = useState(false);
   const [events, setEvents] = useState([]);
+  const [feeds, setFeeds] = useState();
   const [open, setOpen] = useState(false);
   const calendarRef = useRef();
 
@@ -15,7 +17,7 @@ function Calendar({ onClose }) {
 
     
     try {
-      await axios.post("/api/calendar/create-event", data);
+      await axios.post(apiurl.getContent, data);
       console.log(data);
       // Refresh the events after successful addition
       handleDateSet(); // Pass the data.event to handleDateSet
@@ -37,14 +39,19 @@ function Calendar({ onClose }) {
       const end = calendarRef.current.getApi().view.currentEnd;
 
       const response = await axios.get(
-        "/api/calendar/get-event?start=" +
-          moment(start).toISOString() +
-          "&end=" +
-          moment(end).toISOString()
-      );
+        apiurl.getContent
+      ).then((response) => {
+        setFeeds(response.data);
+        const formattedEvents = response.data.map((feed) => ({
+          date: new Date(feed.post_date),
+          title: feed.post_title,
+          // color: getDarkColor()
+        }));
+        setEvents(formattedEvents);
+        console.log(events);
+      });
 
       // console.log(moment(data.start).toISOString(), moment(data.end).toISOString())
-      setEvents(response.data);
     } catch (error) {
       console.error("Error fetching events:", error);
     }

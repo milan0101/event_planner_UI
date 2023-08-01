@@ -2,7 +2,7 @@ import React, { forwardRef, useImperativeHandle, useState } from 'react';
 import Drawer from "../common"
 
 import EventCalendar from '../calender/Bcalender';
-// import Calendar from '../calender/Fullcalendario';
+import Calendar from '../calender/Fullcalendario';
 
 
 const CalendarDrawer = forwardRef((props, ref) => {
@@ -29,8 +29,8 @@ const CalendarDrawer = forwardRef((props, ref) => {
     return (
       <Drawer open={open} onClose={closeDrawer}>
         <div>
-          <EventCalendar />
-          {/* <Calendar onClose={closeDrawer}></Calendar> */}
+          {/* <EventCalendar /> */}
+          <Calendar onClose={closeDrawer}></Calendar>
         </div>
       </Drawer>
     );
