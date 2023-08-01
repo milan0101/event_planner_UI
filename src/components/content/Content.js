@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useRef } from 'react';
-import './content.scss';
+import './content.css';
 import Upcoming from '../Upcoming/Upcoming';
 import Feeds from '../Feed/Feed';
 import Toggle from '../common/Toggle';

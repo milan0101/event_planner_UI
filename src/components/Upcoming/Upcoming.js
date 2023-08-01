@@ -1,5 +1,5 @@
 import React from 'react';
-import './Upcoming.scss';
+// import './Upcoming.scss';
 
 function Upcoming() {
     return (

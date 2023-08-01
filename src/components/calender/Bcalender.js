@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import './calendar.scss';
+// import './calendar.scss';
 import {
   SevenColGrid,
   Wrapper,
@@ -33,6 +33,7 @@ const EventCalendar = () => {
   const [showPortal, setShowPortal] = useState(false);
   const [portalData, setPortalData] = useState({});
   const [highlightedDate, setHighlightedDate] = useState(null);
+  const filteredEvents = events.filter((ev) => ev.date && portalData.date && ev.date.getTime() === portalData.date.getTime());
 
   useEffect(() => {
     setCurrentDate(new Date()); // Set the current date when the component mounts
@@ -46,6 +47,7 @@ const EventCalendar = () => {
           color: getDarkColor()
         }));
         setEvents(formattedEvents);
+        console.log(events);
       })
       .catch((error) => console.log(error));
   }, []);
@@ -174,7 +176,7 @@ const EventCalendar = () => {
         <Portal
           title={portalData.title}
           date={portalData.date}
-          events={events.filter((ev) => ev.date.getTime() === portalData.date.getTime())}
+          events={filteredEvents} // Use the filteredEvents array
           handleDelete={handleDelete}
           handlePortalClose={handlePotalClose}
         />
@@ -183,42 +185,27 @@ const EventCalendar = () => {
     </div>
   );
 };
+
 const EventWrapper = ({ children, handleOnClickEvent }) => {
   const eventCount = children.filter((child) => child).length;
-  // const dotColor = eventCount > 0 ? (eventCount > 1 ? "blue" : "red") : "";
+  const dotColor = eventCount > 0 ? (eventCount > 1 ? "blue" : "red") : "";
 
   return (
     <>
       {eventCount > 0 && (
-        <div  onClick={handleOnClickEvent}></div>
+        <div onClick={handleOnClickEvent} style={{ cursor: "pointer" }}>
+          {/* Display a dot with the appropriate color */}
+          <div className="dot" style={{ backgroundColor: dotColor }}></div>
+        </div>
       )}
       {children}
     </>
   );
 };
 
-
-
-
-// const Portal = ({ title, date, events, handleDelete, handlePortalClose }) => {
-//   const dateStr = date ? date.toDateString() : '';
-
-//   return (
-//     <PortalWrapper>
-//       <h2>{title}</h2>
-//       <p>{dateStr}</p>
-//       {events
-//         .filter((event) => datesAreOnSameDay(event.date, date))
-//         .map((event, index) => (
-//           <div key={index}>{event.title}</div>
-//         ))}
-
-//       <ion-icon onClick={handlePortalClose} name="close-outline"></ion-icon>
-//     </PortalWrapper>
-//   );
-// };
 const Portal = ({ title, date, events, handleDelete, handlePortalClose }) => {
   const dateStr = date ? date.toDateString() : '';
+  console.log(events,"events");
 
   return (
     <PortalWrapper>
@@ -228,10 +215,10 @@ const Portal = ({ title, date, events, handleDelete, handlePortalClose }) => {
         <div key={index}>{event.title}</div>
       ))}
       <ion-icon onClick={handlePortalClose} name="close-outline"></ion-icon>
+      <div>Number of events: {events.length}</div> {/* Add this line to check the number of events */}
     </PortalWrapper>
   );
 };
-
 
 
 export default EventCalendar;

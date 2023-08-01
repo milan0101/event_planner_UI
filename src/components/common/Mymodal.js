@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './modal.scss';
+import './modal.css';
 import Health from '../categories/Health';
 import Volunteer from '../categories/Volunteer';
 import Meetings from '../categories/Meetings';

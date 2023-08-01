@@ -7,7 +7,7 @@ function Toggle(props) {
     const [isToggled, setIsToggled] = useState(false);
 
     const handleToggle = () => {
-        debugger
+      
       setIsToggled((prevState) => !prevState);
     props.handleToggleCalendar(isToggled);
     };

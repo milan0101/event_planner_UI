@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import smartcrop from 'smartcrop';
 import axios from 'axios';
 import { apiurl } from '../config/apiUrl';
-import './Feed.scss';
+// import './Feed.scss';
 
 function Feeds() {
   const [feeds, setFeeds] = useState([]);

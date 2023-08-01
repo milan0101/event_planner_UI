@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Navbar.scss';
+import './Navbar.css';
 import PersonIcon from '@mui/icons-material/Person';
 import SearchIcon from '@mui/icons-material/Search';
 import Icon from '@mui/material/Icon';
@@ -38,7 +38,6 @@ function Navbar() {
     return (
         <div className='nav'>
             <div className='left'>
-                {/* <EventSmallCalendar className='scal'></EventSmallCalendar> */}
                 <SearchIcon className='search'></SearchIcon>
                 <input className='inputs'></input>
                 <AddCircleIcon className='micons' onClick={handleOpen}></AddCircleIcon>
@@ -49,9 +48,7 @@ function Navbar() {
             </div>
             <Modale open={open}
                 onClose={handleClose}></Modale>
-                {/* <MyModal open={open}
-                onclose={handleClose}
-                ></MyModal> */}
+                
             <div className='right'>
                 <PersonIcon className='user'></PersonIcon>
             </div>

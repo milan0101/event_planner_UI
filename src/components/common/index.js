@@ -1,6 +1,6 @@
 import React from 'react';
 import EZDrawer from 'react-modern-drawer';
-import './styles.scss';
+// import './styles.scss';
 import 'react-modern-drawer/dist/index.css';
 
 const Drawer = (props) => {

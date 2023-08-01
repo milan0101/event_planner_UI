@@ -1,49 +1,39 @@
-.drange{
-    margin-left: 20px;
-    // height: 10px;
-    // margin-bottom: 20px;
-}
-
-.trange{
+.drange {
     margin-left: 20px;
 }
-
-.MuiFormControl-root-MuiTextField-root{
+.trange {
     margin-left: 20px;
 }
-
-#r5{
+.MuiFormControl-root-MuiTextField-root {
+    margin-left: 20px;
+}
+#r5 {
     height: 20px;
 }
-
-.dropdown{
-    // margin-left: 20px;
+.dropdown {
     height: 35px;
 }
-
-.hbody{
+.hbody {
     background-color: aqua;
 }
-.ibody{
+.ibody {
     background-color: bisque;
 }
-.mbody{
+.mbody {
     background-color: gray;
 }
-.vbody{
-    background-color: rgb(0, 255, 0);
+.vbody {
+    background-color: #0f0;
 }
-.close{
+.close {
     margin-left: 900px;
     height: 30px;
     cursor: pointer;
     border-radius: 5px;
 }
-
-.dropdown{
+.dropdown {
     margin-bottom: 10px;
 }
-
-.modbody{
+.modbody {
     position: relative;
 }

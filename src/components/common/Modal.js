@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import './modal.scss';
+import './modal.css';
 import Health from '../categories/Health';
 import Volunteer from '../categories/Volunteer';
 import Meetings from '../categories/Meetings';
