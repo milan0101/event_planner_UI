@@ -9,7 +9,7 @@ import {
   SeeMore,
   PortalWrapper
 } from "./Smallcalendar.styled";
-import './calendar.scss';
+// import './calendar.scss';
 import Drawer from 'react-modern-drawer';
 import { Days, MOCKAPPS } from "./conts";
 import {

@@ -1,33 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Table = ({ data }) => {
-  const versions = Object.keys(data);
+const Modal = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Version</th>
-          <th>Month</th>
-          <th>May</th>
-          <th>April</th>
-        </tr>
-      </thead>
-      <tbody>
-        {versions.map((version) => {
-          const tableData = data[version]['nexus_train_base'];
-          return tableData.map((row, index) => (
-            <tr key={`${version}_${index}`}>
-              <td>{version}</td>
-              <td>nexus_train_base</td>
-              <td>{row.may}</td>
-              <td>{row.April}</td>
-            </tr>
-          ));
-        })}
-      </tbody>
-    </table>
+    <div>
+      <button onClick={openModal}>Open Modal</button>
+      {isOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <h2>Modal Title</h2>
+            <p>Modal content goes here...</p>
+            <button onClick={closeModal}>Close</button>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 
-export default Table;
+export default Modal;

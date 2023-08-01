@@ -1,5 +1,5 @@
 import React from 'react';
-import "./signup.scss";
+// import "./signup.scss";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Link, BrowserRouter } from 'react-router-dom';
@@ -20,7 +20,7 @@ const Signin = () => {
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
-      debugger
+      
       if (values) {
         const data = {
           email: values.email,
