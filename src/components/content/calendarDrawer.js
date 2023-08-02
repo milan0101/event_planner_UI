@@ -29,8 +29,8 @@ const CalendarDrawer = forwardRef((props, ref) => {
     return (
       <Drawer open={open} onClose={closeDrawer}>
         <div>
-          {/* <EventCalendar /> */}
-          <Calendar onClose={closeDrawer}></Calendar>
+          <EventCalendar />
+          {/* <Calendar onClose={closeDrawer}></Calendar> */}
         </div>
       </Drawer>
     );
