@@ -35,8 +35,8 @@ function Calendar({ onClose }) {
   async function handleDateSet() {
     try {
       
-      const start = calendarRef.current.getApi().view.currentStart;
-      const end = calendarRef.current.getApi().view.currentEnd;
+      const start_date = calendarRef.current.getApi().view.currentStart;
+      const end_date = calendarRef.current.getApi().view.currentEnd;
 
       const response = await axios.get(
         apiurl.getContent

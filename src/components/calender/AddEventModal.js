@@ -7,8 +7,8 @@ import Modal from 'react-modal';
 function AddEventModal({ isOpen, onClose, onEventAdded }) {
     
     const [title, setTitle] = useState("");
-    const [start, setStart] = useState(new Date());
-    const [end, setEnd] = useState(new Date());
+    const [start_date, setStart] = useState(new Date());
+    const [end_date, setEnd] = useState(new Date());
 
 
     const onSubmit = (event) => {
@@ -16,8 +16,8 @@ function AddEventModal({ isOpen, onClose, onEventAdded }) {
 
         onEventAdded({
             title,
-            start,
-            end
+            start_date,
+            end_date
         })
 
         onClose();
@@ -30,11 +30,11 @@ function AddEventModal({ isOpen, onClose, onEventAdded }) {
 
                     <div>
                         <label>start date</label>
-                        <Datetime value={start} onChange={date => setStart(date)}></Datetime>
+                        <Datetime value={start_date} onChange={date => setStart(date)}></Datetime>
                     </div>
                     <div>
                         <label>end date</label>
-                        <Datetime value={end} onChange={date => setEnd(date)}></Datetime>
+                        <Datetime value={end_date} onChange={date => setEnd(date)}></Datetime>
                     </div>
                     <button>Add event</button>
                 </form>

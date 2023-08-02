@@ -32,8 +32,10 @@ const EventCalendar = () => {
   const dragindexRef = useRef();
   const [showPortal, setShowPortal] = useState(false);
   const [portalData, setPortalData] = useState({});
-  const [highlightedDate, setHighlightedDate] = useState(null);
+  // const [highlightedDate, setHighlightedDate] = useState(null);
+  // const filteredEvents = events.filter((ev) => ev.date && portalData.date && ev.date.getTime() === portalData.date.getTime());
   const filteredEvents = events.filter((ev) => ev.date && portalData.date && ev.date.getTime() === portalData.date.getTime());
+
 
   useEffect(() => {
     setCurrentDate(new Date()); // Set the current date when the component mounts
@@ -78,12 +80,12 @@ const EventCalendar = () => {
     console.log(event);
     setShowPortal(true);
     setPortalData(event);
-    setHighlightedDate(event.date);
+    // setHighlightedDate(event.date);
   };
 
   const handlePotalClose = () => {
     setShowPortal(false);
-    setHighlightedDate(null);
+    // setHighlightedDate(null);
   };
 
 
@@ -94,7 +96,7 @@ const EventCalendar = () => {
     handlePotalClose();
   };
 
-  if (currentDate === null) {
+  if (currentDate === null) {//
     return null; // Render nothing until the current date is 
   }
 
@@ -151,26 +153,24 @@ const EventCalendar = () => {
                       new Date(currentDate.getFullYear(), currentDate.getMonth(), day)
                     ) && (
                       <StyledEvent
-                        onDragStart={(e) => drag(index, e)}
+                        // onDragStart={(e) => drag(index, e)}
                         onClick={() => handleOnClickEvent(ev)}
-                        draggable
-                        className={`StyledEvent ${datesAreOnSameDay(
-                          ev.date,
-                          highlightedDate
-                        ) ? "highlighted" : ""}`}
-                        id={`${ev.color} ${ev.title}`}
+
+                        // className={`StyledEvent ${datesAreOnSameDay(
+                        //   ev.date,
+                        //   // highlightedDate
+                        // ) ? "highlighted" : ""}`}
+                        // id={`${ev.color} ${ev.title}`}
                         key={ev.title}
                       >
-                        {ev.title ? <div className="dot"></div> : <div></div>}
+                        {/* {ev.title ? <div className="dot"></div> : <div></div>} */}
                       </StyledEvent>
                     )
                 )}
               </EventWrapper>
-
             </div>
           ))}
         </SevenColGrid>
-
       </Wrapper>
       {showPortal && (
         <Portal
@@ -193,26 +193,30 @@ const EventWrapper = ({ children, handleOnClickEvent }) => {
   return (
     <>
       {eventCount > 0 && (
-        <div onClick={handleOnClickEvent} style={{ cursor: "pointer" }}>
-          {/* Display a dot with the appropriate color */}
-          <div className="dot" style={{ backgroundColor: dotColor }}></div>
+        <div>
+          {/* <div onClick={handleOnClickEvent} >
+
+          </div> */}
+          <div  className="dot" style={{ cursor: "pointer", backgroundColor: dotColor, width:"10px", height:"10px",marginLeft:"48px", borderRadius:"10px"}} > 
+            {children}
+          </div>
         </div>
       )}
-      {children}
+
     </>
   );
 };
 
 const Portal = ({ title, date, events, handleDelete, handlePortalClose }) => {
   const dateStr = date ? date.toDateString() : '';
-  console.log(events,"events");
+  console.log(events, "events");
 
   return (
     <PortalWrapper>
-      <h2>{title}</h2>
+      {/* <h2>{title}</h2> */}
       <p>{dateStr}</p>
       {events.map((event, index) => (
-        <div key={index}>{event.title}</div>
+        <div key={index}><h4>{event.title}</h4><h5>{event.time}</h5></div>
       ))}
       <ion-icon onClick={handlePortalClose} name="close-outline"></ion-icon>
       <div>Number of events: {events.length}</div> {/* Add this line to check the number of events */}
