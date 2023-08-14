@@ -25,15 +25,11 @@ function Content() {
 
   return (
     <div className='main'>
-      {/* <CalendarMonthIcon onClick={() => toggleDrawer()} className='cicon'></CalendarMonthIcon> */}
       <img src="https://www.lymmhigh.org.uk/wp-content/uploads/2020/11/calendar-icon-blue_sm.png" onClick={() => toggleDrawer()} className='cal'></img>
       <CalendarDrawer ref={calendarRef} />
       <Feeds />
       <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5NcBxHPnvquIk4Bj2Z8j-5Q-H3xdvuR5d0KusbFnsUmaps2yk9nP28iuZrxCEX5elT-M&usqp=CAU' onClick={() => toggleEvent()} className='eve'></img>
       <EventsDrawer ref={eventsRef}></EventsDrawer>
-      {/* <div id='upcome'>
-        <Upcoming />
-      </div> */}
     </div>
   );
 }

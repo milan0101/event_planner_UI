@@ -14,7 +14,7 @@
     height: 35px;
 }
 .hbody {
-    background-color: aqua;
+    background-color:rgb(229,244,253);
 }
 .ibody {
     background-color: bisque;
@@ -23,7 +23,7 @@
     background-color: gray;
 }
 .vbody {
-    background-color: #0f0;
+    background-color:rgb(121,132,135);
 }
 .close {
     margin-left: 900px;

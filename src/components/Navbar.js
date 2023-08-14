@@ -37,9 +37,10 @@ function Navbar() {
 
     return (
         <div className='nav'>
+            <div className='dtitle'><h3 className='title'>Event planner</h3></div>
             <div className='left'>
                 <SearchIcon className='search'></SearchIcon>
-                <input className='inputs'></input>
+                <input className='inputs' placeholder='search'></input>
                 <AddCircleIcon className='micons' onClick={handleOpen}></AddCircleIcon>
                 <link
                     rel="stylesheet"

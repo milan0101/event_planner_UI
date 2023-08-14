@@ -27,6 +27,7 @@ const EventsDrawer = forwardRef((props, ref) => {
     return (
       <Drawer open={open} onClose={closeDrawer}
       direction="right"
+      height="500px"
       >
         <div>
           <Upcoming></Upcoming>

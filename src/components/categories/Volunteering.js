@@ -3,7 +3,7 @@ import Datetime from 'react-datetime';
 import "react-datetime/css/react-datetime.css";
 import './sports.css';
 
-function Health({ onClose, onEventAdded }) {
+function Volunteering({ onClose, onEventAdded }) {
     const [title, setTitle] = useState("");
     const [selectedDate, setSelectedDate] = useState(null);
 
@@ -34,7 +34,7 @@ function Health({ onClose, onEventAdded }) {
 
     return (
         <div className='hbody'>
-            <h2>Sports</h2>
+            <h2>Volunteering</h2>
             <form onSubmit={onSubmit}>
                 {/* <input value={title} onChange={(e) => setTitle(e.target.value)}></input> */}
                 <div className='etitle'>
@@ -69,4 +69,4 @@ function Health({ onClose, onEventAdded }) {
     );
 }
 
-export default Health;
+export default Volunteering;

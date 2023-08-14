@@ -1,5 +1,5 @@
 .nav {
-    background-color: #2e5ae8;
+    /* background-color: #2e5ae8; */
     height: 50px;
     display: flex;
     justify-content: space-between;
@@ -9,26 +9,50 @@
     width: 100%;
     z-index: 1;
 }
-h3 {
-    font-family: revert;
+
+.dtitle {
+    display: flex;
+    padding: 20px 92px 11px 83px;
+    align-items: center;
+    align-self: stretch;
+
 }
+
+.title {
+    margin-left: 20px;
+    color: #000;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* h3 {
+    font-family: revert;
+} */
+
 .micons {
     cursor: pointer;
 }
+
 .ebtn {
     display: flex;
     justify-content: end;
 }
+
 .ebutton {
     height: 40px;
     width: 100px;
     border-radius: 20px;
 }
+
 .etitle {
     display: flex;
     margin-bottom: 20px;
     font-weight: 500;
 }
+
 .einput {
     margin-left: 20px;
     font-size: medium;
@@ -38,34 +62,45 @@ h3 {
     border-width: 1px;
     line-height: 30px;
 }
+
 .left {
     display: flex;
     align-items: center;
     flex: 1;
     justify-content: center;
+    margin-left: -280px;
 }
+
 .search {
     margin-right: 10px;
 }
+
 .inputs {
-    border-radius: 20px;
+    border-radius: 5px;
+    padding: 5px;
     background-color: #f2efef;
-    width: 300px;
+    width: 480px;
     height: 20px;
+    align-items: center;
+    gap: 450px;
     border-color: 1px white;
 }
+
 .right {
     display: flex;
     align-items: center;
 }
+
 .user {
     margin-left: auto;
 }
+
 .react-daterange-picker_day {
     height: 35px;
     margin-left: 20px;
     border-radius: 50px;
 }
+
 @media only screen and (max-width: 480px) {
     .nav {
         background-color: #2e5ae8;
@@ -77,31 +112,37 @@ h3 {
         top: 0;
         width: 100%;
         z-index: 1;
-   }
+    }
+
     .left {
         display: flex;
         align-items: center;
         flex: 1;
         justify-content: center;
-   }
+    }
+
     .search {
         margin-right: 10px;
-   }
+    }
+
     .inputs {
         border-radius: 20px;
         background-color: #f2efef;
         width: 200px;
         height: 20px;
         border-color: 1px white;
-   }
+    }
+
     .right {
         display: flex;
         align-items: center;
-   }
+    }
+
     .user {
         margin-left: auto;
-   }
+    }
+
     .scal {
         position: fixed;
-   }
+    }
 }

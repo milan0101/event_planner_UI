@@ -8,7 +8,8 @@ const Drawer = (props) => {
 
   return (
     <EZDrawer
-      size="42.857rem"
+      // size="42.857rem"
+      size="20.857rem"
       direction="left"
       {...rest}
       open={open}

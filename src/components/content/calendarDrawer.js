@@ -1,5 +1,5 @@
 import React, { forwardRef, useImperativeHandle, useState } from 'react';
-import Drawer from "../common"
+import Drawer from "../common";
 
 import EventCalendar from '../calender/Bcalender';
 import Calendar from '../calender/Fullcalendario';
@@ -27,7 +27,8 @@ const CalendarDrawer = forwardRef((props, ref) => {
     }));
   
     return (
-      <Drawer open={open} onClose={closeDrawer}>
+      <Drawer open={open} onClose={closeDrawer}
+      width="300px">
         <div>
           <EventCalendar />
           {/* <Calendar onClose={closeDrawer}></Calendar> */}

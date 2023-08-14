@@ -1,44 +1,35 @@
 import React from 'react';
-// import './Upcoming.scss';
+import './Upcoming.css';
 
 function Upcoming() {
     return (
         <div className='ubody'>
-           
-                <p className='uhead'>Upcoming Events</p>
-                <div className="textbox">
-                    <textarea  placeholder="">Sports day</textarea>
-                </div>
-                <div className="textbox">
-                    <textarea  placeholder="">Team lunch</textarea>
-                </div>
-                <div className="textbox">
-                    <textarea  placeholder="">Meeting</textarea>
-                </div>
-                <div className="textbox">
-                    <textarea  placeholder="">Meeting</textarea>
-                </div>
-                <div className="textbox">
-                    <textarea  placeholder="">Meeting</textarea>
-                </div>
-
-                <div className="textbox">
-                    <textarea  placeholder="">Meeting</textarea>
-                </div>
-                <div className="textbox">
-                    <textarea  placeholder="">Meeting</textarea>
-                </div><div className="textbox">
-                    <textarea  placeholder="">Meeting</textarea>
-                </div><div className="textbox">
-                    <textarea  placeholder="">Meeting</textarea>
-                </div><div className="textbox">
-                    <textarea  placeholder="">Meeting</textarea>
-                </div><div className="textbox">
-                    <textarea  placeholder="">Meeting</textarea>
-                </div><div className="textbox">
-                    <textarea  placeholder="">Meeting</textarea>
-                </div>
-            
+            <p className='uhead'>Upcoming Events</p>
+            <div className="textbox">
+                <span> 9 AM - 10 AM</span>
+                <p>sports day</p>
+                <p className='des'>Description</p>
+            </div>
+            <div className="textbox">
+                <span> 9 AM - 10 AM</span>
+                <p>sports day</p>
+                <p className='des'>Description</p>
+            </div>
+            <div className="textbox">
+                <span> 9 AM - 10 AM</span>
+                <p>sports day</p>
+                <p className='des'>Description</p>
+            </div>
+            <div className="textbox">
+                <span> 9 AM - 10 AM</span>
+                <p>sports day</p>
+                <p className='des'>Description</p>
+            </div>
+            <div className="textbox">
+                <span> 9 AM - 10 AM</span>
+                <p>sports day</p>
+                <p className='des'>Description</p>
+            </div>
         </div>
     )
 }

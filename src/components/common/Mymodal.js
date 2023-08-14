@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './modal.css';
-import Health from '../categories/Health';
-import Volunteer from '../categories/Volunteer';
+import Health from '../categories/Sports';
+import Volunteer from '../categories/Events';
 import Meetings from '../categories/Meetings';
 import Internalevents from '../categories/Internalevents';
 import CloseIcon from '@mui/icons-material/Close';

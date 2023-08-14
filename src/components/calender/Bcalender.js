@@ -23,6 +23,7 @@ import {
 } from "./utils";
 import { apiurl } from "../config/apiUrl";
 import axios from "axios";
+import Health from "../categories/Sports";
 
 const EventCalendar = () => {
   const [currentDate, setCurrentDate] = useState(null);
@@ -32,6 +33,7 @@ const EventCalendar = () => {
   const dragindexRef = useRef();
   const [showPortal, setShowPortal] = useState(false);
   const [portalData, setPortalData] = useState({});
+  const calendarRef = useRef();
   // const [highlightedDate, setHighlightedDate] = useState(null);
   // const filteredEvents = events.filter((ev) => ev.date && portalData.date && ev.date.getTime() === portalData.date.getTime());
   const filteredEvents = events.filter((ev) => ev.date && portalData.date && ev.date.getTime() === portalData.date.getTime());
@@ -99,6 +101,7 @@ const EventCalendar = () => {
   if (currentDate === null) {//
     return null; // Render nothing until the current date is 
   }
+
 
   return (
     <div>
@@ -181,7 +184,7 @@ const EventCalendar = () => {
           handlePortalClose={handlePotalClose}
         />
       )}
-
+    
     </div>
   );
 };

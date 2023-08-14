@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useState } from 'react';
+// import { LocalizationProvider } from '@mui/x-date-pickers';
+// import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+// import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker';
+// // import '../common/modal.scss';
+// import { MultiInputTimeRangeField } from '@mui/x-date-pickers-pro/MultiInputTimeRangeField';
+// import { MultiInputDateRangeField } from '@mui/x-date-pickers-pro/MultiInputDateRangeField';
 import Datetime from 'react-datetime';
 import "react-datetime/css/react-datetime.css";
 import './sports.css';
 
-function Health({ onClose, onEventAdded }) {
+function Events({onClose,onEventAdded}) {
+
     const [title, setTitle] = useState("");
     const [selectedDate, setSelectedDate] = useState(null);
 
@@ -29,12 +37,9 @@ function Health({ onClose, onEventAdded }) {
         }
     };
 
-
-
-
     return (
-        <div className='hbody'>
-            <h2>Sports</h2>
+        <div className='vbody'>
+            <h2>Events</h2>
             <form onSubmit={onSubmit}>
                 {/* <input value={title} onChange={(e) => setTitle(e.target.value)}></input> */}
                 <div className='etitle'>
@@ -50,23 +55,23 @@ function Health({ onClose, onEventAdded }) {
                 <div className='etitle'>
                     <h4>Event start date :</h4>
                     {/* <input className='einput'></input> */}
-                    <Datetime value={start_date}  onChange={date => setStart(date)} className="form-control"></Datetime>
+                    <Datetime value={start_date} onChange={date => setStart(date)} className="form-control"></Datetime>
 
                 </div>
-              
+
                 <div className='etitle'>
-                <h4> Event end date:</h4>
+                    <h4> Event end date:</h4>
                     {/* <input className='einput'></input> */}
                     <Datetime value={end_date} onChange={date => setEnd(date)}></Datetime>
                 </div>
-                
-                
+
+
                 {/* Display the selected date for reference */}
                 {selectedDate && <p>Selected Date: {selectedDate.toString()}</p>}
                 <button>Add event</button>
             </form>
         </div>
-    );
+    )
 }
 
-export default Health;
+export default Events;
